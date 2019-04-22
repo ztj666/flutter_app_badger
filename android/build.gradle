@@ -17,13 +17,14 @@ rootProject.allprojects {
         google()
         jcenter()
         maven { url "https://raw.github.com/g123k/ShortcutBadger/master" }
+        maven { url 'https://jitpack.io' }
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 16
@@ -37,4 +38,11 @@ android {
 dependencies {
     //noinspection GradleDependency
     implementation "me.leolin:ShortcutBadger:1.1.21-oreo-fix@aar"
+    implementation 'com.github.whytot:BadgeForAppIcon:v1.0.0-beta.2'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:28.0.0-beta01'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
