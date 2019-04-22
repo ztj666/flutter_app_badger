@@ -1,6 +1,7 @@
 package fr.g123k.flutterappbadger;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -70,7 +71,7 @@ public class FlutterAppBadgerPlugin implements MethodCallHandler {
                 .setAutoCancel(true)
                 .setNumber(1)
                 .build();
-        new IconBadgeNumManager().setIconBadgeNum((Application) context, notification, Integer.valueOf(call.argument("count").toString()));
+        new IconBadgeNumManager().setIconBadgeNum(((Activity) context).getApplication(), notification, Integer.valueOf(call.argument("count").toString()));
       } catch (Exception e) {
         e.printStackTrace();
       }
